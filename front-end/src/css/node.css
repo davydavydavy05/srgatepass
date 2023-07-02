@@ -1,0 +1,900 @@
+.node {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  background-color: #FFF;
+}
+
+/* Node Start */
+
+.node-start {
+  text-align: center;
+}
+
+/* Node End */
+
+.node-End {
+  background-image: url('../assets/images/end_node_bg_horizontal_4.png') !important;
+  background-size: cover;
+  background-position: center;
+}
+
+#node-13-6, #node-13-8, #node-13-10, #node-13-12, #node-13-14, 
+#node-13-16, #node-13-18, #node-13-20 {
+  background-image: url('../assets/images/end_node_bg_vertical_4.png') !important;
+}
+
+#node-23-39, #node-24-48 {
+  background-image: none !important;
+}
+
+/* Dark Walls */
+
+#node-2-20, #node-2-21, #node-2-22, #node-2-24, #node-2-25,
+#node-2-26, #node-2-27, #node-2-28, #node-2-29, #node-2-30,
+#node-2-31, #node-2-32, #node-2-33, #node-2-34, #node-2-35,
+#node-2-36, #node-2-37, #node-2-38, #node-2-39, #node-2-40,
+#node-2-41, #node-2-42, #node-2-43, #node-2-44, #node-2-45,
+#node-2-46, #node-2-47, #node-2-48, #node-2-49, #node-2-50,
+#node-2-51, #node-2-52, #node-2-53, #node-2-54, #node-2-55,
+#node-2-56, #node-2-57,
+#node-3-20, #node-3-22, #node-3-24, #node-3-57,
+#node-4-20, #node-4-22, #node-4-25, #node-4-26,
+#node-4-27, #node-4-28, #node-4-29, #node-4-30, #node-4-31,
+#node-4-32, #node-4-33, #node-4-34, #node-4-35, #node-4-36,
+#node-4-37, #node-4-38, #node-4-39, #node-4-40, #node-4-41,
+#node-4-42, #node-4-43, #node-4-44, #node-4-45, #node-4-46,
+#node-4-47, #node-4-48, #node-4-49, #node-4-50, #node-4-51,
+#node-4-52, #node-4-53, #node-4-54, #node-4-55, #node-4-56,
+#node-4-57,
+#node-5-20, #node-5-22, 
+#node-6-20, #node-6-22, #node-6-25, #node-6-26,
+#node-6-27, #node-6-28, #node-6-29, #node-6-30, #node-6-31,
+#node-6-32, #node-6-33, #node-6-34, #node-6-35, #node-6-36,
+#node-6-36, #node-6-37, #node-6-38, #node-6-39, #node-6-40,
+#node-6-41, #node-6-42, #node-6-43, #node-6-44, #node-6-45,
+#node-6-46, #node-6-47, #node-6-48, #node-6-49, #node-6-50,
+#node-6-51, #node-6-52, #node-6-53,
+#node-6-57, #node-6-58, #node-6-59,
+#node-7-20, #node-7-22, #node-7-24, #node-7-25, #node-7-26,
+#node-7-27, #node-7-28, #node-7-29, #node-7-30, #node-7-31,
+#node-7-32, #node-7-33, #node-7-34, #node-7-35, #node-7-36,
+#node-7-36, #node-7-37, #node-7-38, #node-7-39, #node-7-40,
+#node-7-41, #node-7-42, #node-7-43, #node-7-44, #node-7-45,
+#node-7-46, #node-7-47, #node-7-48, #node-7-49, #node-7-50,
+#node-7-51, #node-7-52, #node-7-53, #node-7-54, #node-7-56,
+#node-7-57, #node-7-59,
+#node-8-20, #node-8-22, #node-8-24, #node-8-28,
+#node-8-30, #node-8-32, #node-8-34, #node-8-36, #node-8-38,
+#node-8-40, #node-8-42, #node-8-44, #node-8-46, #node-8-48,
+#node-8-50, #node-8-52, #node-8-54, #node-8-56, #node-8-57,
+#node-8-58, #node-8-59,
+#node-9-20, #node-9-22, #node-9-24, #node-9-25, #node-9-26,
+#node-9-27, #node-9-28, #node-9-29, #node-9-30, #node-9-31,
+#node-9-32, #node-9-33, #node-9-34, #node-9-35, #node-9-36,
+#node-9-36, #node-9-37, #node-9-38, #node-9-39, #node-9-40,
+#node-9-41, #node-9-42, #node-9-43, #node-9-44, #node-9-45,
+#node-9-46, #node-9-47, #node-9-48, #node-9-49, #node-9-50,
+#node-9-51, #node-9-52, #node-9-53, #node-9-54, #node-9-56,
+#node-9-57, #node-9-59,
+#node-10-20, #node-10-22, #node-10-25, #node-10-26,
+#node-10-27, #node-10-28, #node-10-29, #node-10-30, #node-10-31,
+#node-10-32, #node-10-33, #node-10-34, #node-10-35, #node-10-36,
+#node-10-36, #node-10-37, #node-10-38, #node-10-39, #node-10-40,
+#node-10-41, #node-10-42, #node-10-43, #node-10-44, #node-10-45,
+#node-10-46, #node-10-47, #node-10-48, #node-10-49, #node-10-50,
+#node-10-51, #node-10-52, #node-10-53, #node-10-56,
+#node-10-57, #node-10-58, #node-10-59,
+#node-11-20, #node-11-22, #node-11-56, #node-11-57, #node-11-59,
+#node-12-2, #node-12-3, #node-12-4, #node-12-5, #node-12-6, 
+#node-12-7, #node-12-8, #node-12-9, #node-12-10, #node-12-11, 
+#node-12-12, #node-12-13, #node-12-14, #node-12-15, #node-12-16,
+#node-12-17, #node-12-18, #node-12-19, #node-12-20, #node-12-21,
+#node-12-22, #node-12-25, #node-12-26, #node-12-27,
+#node-12-28, #node-12-29, #node-12-30, #node-12-31, #node-12-32,
+#node-12-33, #node-12-34, #node-12-35, #node-12-36, #node-12-37,
+#node-12-38, #node-12-39, #node-12-40, #node-12-41, #node-12-42,
+#node-12-43, #node-12-44, #node-12-45, #node-12-46, #node-12-47,
+#node-12-48, #node-12-49, #node-12-50, #node-12-51, #node-12-52,
+#node-12-53, #node-12-56, #node-12-57, #node-12-58,
+#node-12-59,
+#node-13-2, #node-13-3, #node-13-21, #node-13-22, #node-13-24,
+#node-13-27, #node-13-52, #node-13-54, #node-13-56, #node-13-57,
+#node-13-59,
+#node-14-2, #node-14-3, #node-14-4, #node-14-5, #node-14-6,
+#node-14-7, #node-14-8, #node-14-9, #node-14-10, #node-14-11,
+#node-14-12, #node-14-13, #node-14-14, #node-14-15, #node-14-16,
+#node-14-17, #node-14-18, #node-14-19, #node-14-20, #node-14-21,
+#node-14-22, #node-14-25, #node-14-26, #node-14-27,
+#node-14-28, #node-14-29, #node-14-30, #node-14-31, #node-14-32,
+#node-14-33, #node-14-34, #node-14-35, #node-14-36, #node-14-37,
+#node-14-38, #node-14-39, #node-14-40, #node-14-41, #node-14-42,
+#node-14-43, #node-14-44, #node-14-45, #node-14-46, #node-14-47,
+#node-14-48, #node-14-49, #node-14-50, #node-14-51, #node-14-52,
+#node-14-53, #node-14-56, #node-14-57, #node-14-58,
+#node-14-59,
+#node-15-56, #node-15-57, #node-15-59,
+#node-16-3, #node-16-7, #node-16-8,
+#node-16-12, #node-16-13,
+#node-16-17, #node-16-18,
+#node-16-22, #node-16-23, #node-16-27,
+#node-16-28, #node-16-32, #node-16-33,
+#node-16-34, #node-16-35, #node-16-36, #node-16-37, #node-16-38,
+#node-16-39, #node-16-40, #node-16-41, #node-16-37, #node-16-42,
+#node-16-43, #node-16-44, #node-16-45, #node-16-46, #node-16-47,
+#node-16-48, #node-16-49, #node-16-50, #node-16-51, #node-16-52,
+#node-16-53, #node-16-56, #node-16-57, #node-16-58,
+#node-16-59,
+#node-17-4, #node-17-6, #node-17-8, #node-17-9, #node-17-11,
+#node-17-13, #node-17-14, #node-17-16, #node-17-18, #node-17-19,
+#node-17-21, #node-17-23, #node-17-24, #node-17-26, #node-17-27,
+#node-17-28, #node-17-29, #node-17-31, #node-17-32, #node-17-34, 
+#node-17-36, #node-17-38, #node-17-40, #node-17-42, #node-17-44, 
+#node-17-46, #node-17-48, #node-17-50, #node-17-52, #node-17-54,
+#node-17-56, #node-17-57, #node-17-59,
+#node-18-4, #node-18-6, #node-18-9, #node-18-11, #node-18-14,
+#node-18-16, #node-18-19, #node-18-21, #node-18-24, #node-18-26,
+#node-18-28, #node-18-29, #node-18-31, #node-18-54, #node-18-56,
+#node-18-57, #node-18-58, #node-18-59,
+#node-19-4, #node-19-6, #node-19-8, #node-19-9, #node-19-11,
+#node-19-13, #node-19-14, #node-19-16, #node-19-18, #node-19-19, 
+#node-19-21, #node-19-23, #node-19-24, #node-19-26, #node-19-27,
+#node-19-28, #node-19-29, #node-19-31, #node-19-34, #node-19-35,
+#node-19-36, #node-19-37, #node-19-38, #node-19-39, #node-19-40,
+#node-19-41, #node-19-42, #node-19-43, #node-19-44, #node-19-45,
+#node-19-46, #node-19-47, #node-19-48, #node-19-49, #node-19-50,
+#node-19-51, #node-19-52, #node-19-53, #node-19-54, #node-19-56,
+#node-19-57, #node-19-59,
+#node-20-4, #node-20-6, #node-20-9, #node-20-11, #node-20-14,
+#node-20-16, #node-20-19, #node-20-21, #node-20-24, #node-20-26,
+#node-20-28, #node-20-29, #node-20-31, #node-20-32, #node-20-34,
+#node-20-54, #node-20-56, #node-20-57, #node-20-58, #node-20-59,
+#node-21-4, #node-21-6, #node-21-8, #node-21-9, #node-21-11,
+#node-21-56, #node-21-57, #node-21-59,
+#node-21-13, #node-21-14, #node-21-16, #node-21-18, #node-21-19,
+#node-21-21, #node-21-23, #node-21-24, #node-21-26, #node-21-27,
+#node-21-28, #node-21-29, #node-21-31, #node-21-34, #node-21-54,
+#node-22-4, #node-22-6, #node-22-9, #node-22-11, #node-22-14,
+#node-22-16, #node-22-19, #node-22-21, #node-22-24, #node-22-26,
+#node-22-28, #node-22-29, #node-22-31, #node-22-32, #node-22-34,
+#node-22-54, #node-22-56, #node-22-57, #node-22-58, #node-22-59,
+#node-23-4, #node-23-6, #node-23-8, #node-23-9, #node-23-11,
+#node-23-13, #node-23-14, #node-23-16, #node-23-18, #node-23-19,
+#node-23-21, #node-23-23, #node-23-24, #node-23-26, #node-23-27,
+#node-23-28, #node-23-29, #node-23-31, #node-23-34, #node-23-54,
+#node-23-56, #node-23-57, #node-23-59,
+#node-24-4, #node-24-6, #node-24-9, #node-24-11, #node-24-14,
+#node-24-16, #node-24-19, #node-24-21, #node-24-24, #node-24-26,
+#node-24-28, #node-24-29, #node-24-31, #node-24-32, #node-24-34,
+#node-24-35, #node-24-36, #node-24-37, #node-24-38, #node-24-42,
+#node-24-43, #node-24-53, #node-24-54, #node-24-56, #node-24-57,
+#node-24-58, #node-24-59,
+#node-25-4, #node-25-6, #node-25-8, #node-25-9, #node-25-11,
+#node-25-13, #node-25-14, #node-25-16, #node-25-18, #node-25-19,
+#node-25-21, #node-25-23, #node-25-24, #node-25-26, #node-25-27,
+#node-25-28, #node-25-29, #node-25-32, #node-25-33,
+#node-25-34, #node-25-35, #node-25-36, #node-25-37, #node-25-38,
+#node-25-39, #node-25-40, #node-25-41, #node-25-42, #node-25-43,
+#node-25-44, #node-25-45, #node-25-46, #node-25-47, #node-25-48,
+#node-25-49, #node-25-50, #node-25-51, #node-25-52, #node-25-53,
+#node-25-56, #node-25-57, #node-25-59,
+#node-26-4, #node-26-6, #node-26-9, #node-26-11, #node-26-14,
+#node-26-16, #node-26-19, #node-26-21, #node-26-24, #node-26-26,
+#node-26-27, #node-26-28, #node-26-29, #node-26-56, #node-26-57,
+#node-26-58, #node-26-59,
+#node-27-4, #node-27-6, #node-27-8, #node-27-9, #node-27-11,
+#node-27-13, #node-27-14, #node-27-16, #node-27-18, #node-27-19,
+#node-27-21, #node-27-23, #node-27-24, #node-27-26, #node-27-27,
+#node-27-28, #node-27-29, #node-27-32, #node-27-33,
+#node-27-34, #node-27-35, #node-27-36, #node-27-37, #node-27-38,
+#node-27-39, #node-27-40, #node-27-41, #node-27-42, #node-27-43,
+#node-27-47, #node-27-48, #node-27-49,
+#node-27-50, #node-27-51, #node-27-52, #node-27-53,
+#node-27-56, #node-27-57, #node-27-59,
+#node-28-4, #node-28-6, #node-28-9, #node-28-11, #node-28-14,
+#node-28-16, #node-28-19, #node-28-21, #node-28-24, #node-28-26,
+#node-28-27, #node-28-28, #node-28-29, #node-28-31, #node-28-33,
+#node-28-35, #node-28-37, #node-28-39, #node-28-41, #node-28-43,
+#node-28-44, #node-28-46, #node-28-48, #node-28-50, #node-28-52,
+#node-28-54, #node-28-56, #node-28-57, #node-28-58, #node-28-59,
+#node-29-4, #node-29-6, #node-29-8, #node-29-9, #node-29-11,
+#node-29-13, #node-29-14, #node-29-16, #node-29-18, #node-29-19,
+#node-29-21, #node-29-23, #node-29-24, #node-29-26, #node-29-27,
+#node-29-28, #node-29-29, #node-29-31, #node-29-44, #node-29-46,
+#node-29-48, #node-29-50, #node-29-52, #node-29-54, #node-29-56,
+#node-29-57, #node-29-59,
+#node-30-4, #node-30-6, #node-30-9, #node-30-11, #node-30-14,
+#node-30-16, #node-30-19, #node-30-21, #node-30-24, #node-30-26,
+#node-30-28, #node-30-29, #node-30-31, #node-30-32, #node-30-33,
+#node-30-34, #node-30-35, #node-30-36, #node-30-37, #node-30-38,
+#node-30-38, #node-30-39, #node-30-40, #node-30-41, #node-30-42, 
+#node-30-44, #node-30-46, #node-30-47, #node-30-48, #node-30-44,
+#node-30-43, #node-30-48, #node-30-49, #node-30-50, #node-30-52, 
+#node-30-54, #node-30-50, #node-30-51, #node-30-53, #node-30-56,
+#node-30-57, #node-30-58, #node-30-59,
+#node-31-4, #node-31-6, #node-31-8, #node-31-9, #node-31-11,
+#node-31-13, #node-31-14, #node-31-16, #node-31-18, #node-31-19,
+#node-31-21, #node-31-23, #node-31-24, #node-31-26, #node-31-27,
+#node-31-28, #node-31-29, #node-31-32, #node-31-33,
+#node-31-34, #node-31-35, #node-31-36, #node-31-37, #node-31-38,
+#node-31-39, #node-31-40, #node-31-41, #node-31-42, #node-31-43,
+#node-31-44, #node-31-47, #node-31-48, #node-31-49,
+#node-31-50, #node-31-51, #node-31-52, #node-31-53, #node-31-54,
+#node-31-56, #node-31-57, #node-31-58, #node-31-59,
+#node-32-4, #node-32-6, #node-32-9, #node-32-11, #node-32-14,
+#node-32-16, #node-32-19, #node-32-21, #node-32-24, #node-32-26,
+#node-32-28, #node-32-29,
+#node-33-4, #node-33-6, #node-33-8, #node-33-9, #node-33-11,
+#node-33-18, #node-33-19, #node-33-21, #node-33-23, #node-33-24,
+#node-33-13, #node-33-14, #node-33-16, #node-33-18, #node-33-19,
+#node-33-26, #node-33-27, #node-33-28, #node-33-29,
+#node-33-32, #node-33-33, #node-33-34, #node-33-35, #node-33-36,
+#node-33-37, #node-33-38, #node-33-39, #node-33-40, #node-33-41,
+#node-33-42, #node-33-43,
+#node-34-4, #node-34-6, #node-34-9, #node-34-11, #node-34-14,
+#node-34-16, #node-34-19, #node-34-21, #node-34-24, #node-34-26,
+#node-34-28, #node-34-29, #node-34-31, #node-34-33, #node-34-35,
+#node-34-37, #node-34-39, #node-34-41, #node-34-43, #node-34-44,
+#node-35-4, #node-35-6, #node-35-8, #node-35-9, #node-35-11,
+#node-35-13, #node-35-14, #node-35-16, #node-35-18, #node-35-19,
+#node-35-21, #node-35-23, #node-35-24, #node-35-26, #node-35-27,
+#node-35-28, #node-35-29, #node-35-31, #node-35-44,
+#node-36-4, #node-36-6, #node-36-9, #node-36-11, #node-36-14,
+#node-36-16, #node-36-19, #node-36-21, #node-36-24, #node-36-26,
+#node-36-28, #node-36-29, #node-36-31, #node-36-32, #node-36-33,
+#node-36-34, #node-36-35, #node-36-36, #node-36-37, #node-36-38,
+#node-36-39, #node-36-40, #node-36-41, #node-36-42, #node-36-43,
+#node-36-44,
+#node-37-3, #node-37-7, #node-37-8, 
+#node-37-12, #node-37-13,
+#node-37-17, #node-37-18, #node-37-19,
+#node-37-22, #node-37-23, #node-37-27,
+#node-37-28, #node-37-32,
+#node-37-33, #node-37-34, #node-37-35, #node-37-36, #node-37-37,
+#node-37-38, #node-37-39, #node-37-40, #node-37-41, #node-37-42,
+#node-37-43,
+#node-39-3, #node-39-4, #node-39-5, #node-39-6, #node-39-7, 
+#node-39-8, #node-39-9, #node-39-10, #node-39-11, #node-39-12, 
+#node-39-13, #node-39-14, #node-39-15, #node-39-16, #node-39-17, 
+#node-39-18, #node-39-19, #node-39-20, #node-39-21, #node-39-22,  
+#node-39-23, #node-39-24, #node-39-25, #node-39-26, #node-39-27, 
+#node-39-28, #node-39-29, #node-39-30, #node-39-31, #node-39-32, 
+#node-39-33, #node-39-34, #node-39-35, #node-39-36, #node-39-37, 
+#node-39-38, #node-39-39, #node-39-40, #node-39-41, #node-39-42,
+#node-39-43,
+#node-40-3, #node-40-4, #node-40-5, #node-40-6, #node-40-7, 
+#node-40-8, #node-40-9, #node-40-10, #node-40-11, #node-40-12, 
+#node-40-13, #node-40-14, #node-40-15, #node-40-16, #node-40-17, 
+#node-40-18, #node-40-19, #node-40-20, #node-40-21, #node-40-22, 
+#node-40-23, #node-40-24, #node-40-25, #node-40-26, #node-40-27, 
+#node-40-28, #node-40-29, #node-40-30, #node-40-31, #node-40-32, 
+#node-40-33, #node-40-34, #node-40-35, #node-40-36, #node-40-37, 
+#node-40-38, #node-40-39, #node-40-40, #node-40-41, #node-40-42, 
+#node-40-43, #node-40-44,
+#node-41-3, #node-41-4, #node-41-5, #node-41-6, #node-41-7,
+#node-41-8, #node-41-9, #node-41-10, #node-41-11, #node-41-12,
+#node-41-13, #node-41-14, #node-41-15, #node-41-16, #node-41-17,
+#node-41-18, #node-41-19, #node-41-20, #node-41-21, #node-41-22,
+#node-41-23, #node-41-24, #node-41-25, #node-41-26, #node-41-27,
+#node-41-28, #node-41-29, #node-41-30, #node-41-31, #node-41-32,
+#node-41-33, #node-41-34, #node-41-35, #node-41-36, #node-41-37,
+#node-41-38, #node-41-39, #node-41-40, #node-41-41, #node-41-42,
+#node-41-43, #node-41-44,
+#node-42-3, #node-42-4, #node-42-5, #node-42-6, #node-42-7,
+#node-42-8, #node-42-9, #node-42-10, #node-42-11, #node-42-12,
+#node-42-13, #node-42-14, #node-42-15, #node-42-16, #node-42-17,
+#node-42-18, #node-42-19, #node-42-20, #node-42-21, #node-42-22,
+#node-42-23, #node-42-24, #node-42-25, #node-42-26, #node-42-27,
+#node-42-28, #node-42-29, #node-42-30, #node-42-31, #node-42-32,
+#node-42-33, #node-42-34, #node-42-35, #node-42-36, #node-42-37,
+#node-42-38, #node-42-39, #node-42-40, #node-42-41, #node-42-42,
+#node-42-43, #node-42-44 {
+  background-color: #D8DBE5;
+}
+
+#node-20-42,
+#node-21-42,
+#node-22-42,
+#node-23-35, #node-23-36, #node-23-37, #node-23-38,
+#node-24-37, #node-24-38 {
+  background-color: #EAEBF0;
+}
+
+/* Top */
+
+#node-2-20, #node-2-21, #node-2-22, #node-2-24, #node-2-25, 
+#node-2-26, #node-2-27, #node-2-28, #node-2-29, #node-2-30,
+#node-2-31, #node-2-32, #node-2-33, #node-2-34, #node-2-35,
+#node-2-36, #node-2-37, #node-2-38, #node-2-39, #node-2-40,
+#node-2-41, #node-2-42, #node-2-43, #node-2-44, #node-2-45,
+#node-2-46, #node-2-47, #node-2-48, #node-2-49, #node-2-50,
+#node-2-51, #node-2-52, #node-2-53, #node-2-54, #node-2-55,
+#node-2-56, #node-2-57,
+#node-12-2, #node-12-3,
+#node-12-4, #node-12-5, #node-12-6, #node-12-7, #node-12-8,
+#node-12-9, #node-12-10, #node-12-11, #node-12-12, #node-12-13,
+#node-12-14, #node-12-15, #node-12-16, #node-12-17, #node-12-18,
+#node-12-19, #node-12-20 {
+  position: relative;
+  background-color: #EBECF2 !important;
+}
+
+#node-2-21::after, #node-2-22::after, #node-2-24::after, #node-2-25::after, #node-2-26::after,
+#node-2-27::after, #node-2-28::after, #node-2-29::after, #node-2-30::after, #node-2-31::after,
+#node-2-32::after, #node-2-33::after, #node-2-34::after, #node-2-35::after, #node-2-36::after,
+#node-2-37::after, #node-2-38::after, #node-2-39::after, #node-2-40::after, #node-2-41::after,
+#node-2-42::after, #node-2-43::after, #node-2-44::after, #node-2-45::after, #node-2-46::after,
+#node-2-43::after, #node-2-44::after, #node-2-45::after, #node-2-46::after, #node-2-47::after,
+#node-2-48::after, #node-2-49::after, #node-2-50::after, #node-2-51::after, #node-2-52::after,
+#node-2-53::after, #node-2-54::after, #node-2-55::after, #node-2-56::after, #node-2-57::after,
+#node-12-3::after,
+#node-12-4::after, #node-12-5::after, #node-12-6::after, #node-12-7::after, #node-12-8::after,
+#node-12-9::after, #node-12-10::after, #node-12-11::after, #node-12-12::after, #node-12-13::after,
+#node-12-14::after, #node-12-15::after, #node-12-16::after, #node-12-17::after, #node-12-18::after,
+#node-12-19::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75%;
+  background-color: #D8DBE5 !important;
+}
+
+#node-19-35::after, #node-19-36::after, #node-19-37::after, #node-19-38::after,
+#node-19-39::after, #node-19-40::after, #node-19-41::after, #node-19-43::after,
+#node-19-44::after, #node-19-45::after, #node-19-46::after, #node-19-47::after,
+#node-19-48::after, #node-19-49::after, #node-19-50::after, #node-19-51::after,
+#node-19-52::after, #node-19-53::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background-color: #C8C8D9 !important;
+}
+
+#node-20-34::after,
+#node-21-34::after,
+#node-22-34::after,
+#node-24-43::after,
+#node-24-53::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  background-color: #C8C8D9 !important;
+}
+
+#node-24-43::after,
+#node-24-53::after {
+  width: 100%;
+}
+
+#node-19-35::after {
+  left: 25%;
+}
+
+#node-23-35::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 0;
+  height: 50%;
+  background-color: #C8C8D9 !important;
+}
+
+#node-23-36::after, #node-23-37::after, #node-23-38::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background-color: #C8C8D9 !important;}
+
+#node-20-35, #node-20-36, #node-20-37, #node-20-38,#node-20-39,
+#node-20-40, #node-20-41, #node-20-43, #node-20-44, #node-20-45,
+#node-20-46, #node-20-47, #node-20-48, #node-20-49, #node-20-50,
+#node-20-51, #node-20-52, #node-20-53,
+#node-21-35, #node-21-36, #node-21-37, #node-21-38,#node-21-39,
+#node-21-40, #node-21-41, #node-21-43, #node-21-44, #node-21-45,
+#node-21-46, #node-21-47, #node-21-48, #node-21-49, #node-21-50,
+#node-21-51, #node-21-52, #node-21-53,
+#node-22-35, #node-22-36, #node-22-37, #node-22-38, #node-22-39,
+#node-22-40, #node-22-41, #node-22-43, #node-22-44, #node-22-45, 
+#node-22-45, #node-22-46, #node-22-47, #node-22-48, #node-22-49, 
+#node-22-50, #node-22-51, #node-22-52, #node-22-53, #node-22-49, 
+#node-22-50, #node-22-51,
+#node-23-39, #node-23-40, #node-23-41, #node-23-43, #node-23-44, 
+#node-23-45, #node-23-46, #node-23-47, #node-23-48, #node-23-49, 
+#node-23-50, #node-23-51, #node-23-52, #node-23-53,
+#node-24-39, #node-24-40, #node-24-41,
+#node-24-44, #node-24-45, #node-24-46, #node-24-47,
+#node-24-48, #node-24-49, #node-24-50, #node-24-51, #node-24-52 {
+  background-color: #C8C8D9 !important;
+}
+
+#node-3-25, #node-3-27, #node-3-29, #node-3-31, #node-3-33,
+#node-3-35, #node-3-37, #node-3-39, #node-3-41, #node-3-43,
+#node-3-44, #node-3-45, #node-3-25, #node-3-47, #node-3-49,
+#node-3-51, #node-3-53, #node-3-55, #node-3-57,
+#node-8-25, #node-8-27, #node-8-29, #node-8-31, #node-8-33, 
+#node-8-35, #node-8-37, #node-8-39, #node-8-41, #node-8-43, 
+#node-8-45, #node-8-47, #node-8-49, #node-8-51,
+#node-13-3, #node-13-5, #node-13-7, #node-13-9, #node-13-11,
+#node-13-13, #node-13-15, #node-13-17, #node-13-19, #node-13-25,
+#node-13-27, #node-13-29, #node-13-31, #node-13-33, #node-13-35, 
+#node-13-37, #node-13-39, #node-13-41, #node-13-43, #node-13-45, 
+#node-13-47, #node-13-49, #node-13-51,
+#node-18-32, #node-18-34, #node-18-36, #node-18-38, #node-18-40,
+#node-18-42, #node-18-44, #node-18-46, #node-18-48, #node-18-50,
+#node-18-52,
+#node-19-32,
+#node-21-32,
+#node-23-32 {
+  background-color: #D8DBE5 !important;
+}
+
+#node-3-25::after, #node-3-27::after, #node-3-29::after, #node-3-31::after, #node-3-33::after,
+#node-3-35::after, #node-3-37::after, #node-3-39::after, #node-3-41::after, #node-3-43::after,
+#node-3-45::after, #node-3-47::after, #node-3-49::after, #node-3-51::after, #node-3-53::after,
+#node-3-55::after,
+#node-7-57::after,
+#node-8-25::after, #node-8-27::after, #node-8-29::after, #node-8-31::after, #node-8-33::after, 
+#node-8-35::after, #node-8-37::after, #node-8-39::after, #node-8-41::after, #node-8-43::after, 
+#node-8-45::after, #node-8-47::after, #node-8-49::after, #node-8-51::after,
+#node-9-57::after,
+#node-11-57::after,
+#node-13-3::after, #node-13-5::after, #node-13-7::after, #node-13-9::after, #node-13-11::after,
+#node-13-13::after, #node-13-15::after, #node-13-17::after, #node-13-19::after, #node-13-25::after,
+#node-13-27::after, #node-13-29::after, #node-13-31::after, #node-13-33::after, #node-13-35::after, 
+#node-13-37::after, #node-13-39::after, #node-13-41::after, #node-13-43::after, #node-13-45::after, 
+#node-13-47::after, #node-13-49::after, #node-13-51::after, #node-13-57::after,
+#node-15-57::after,
+#node-17-57::after,
+#node-18-32::after, #node-18-34::after, #node-18-36::after, #node-18-38::after, #node-18-40::after,
+#node-18-42::after, #node-18-44::after, #node-18-46::after, #node-18-48::after, #node-18-50::after,
+#node-18-52::after,
+#node-19-32::after, #node-19-57::after,
+#node-21-32::after, #node-21-57::after,
+#node-23-32::after, #node-23-57::after,
+#node-25-57::after,
+#node-27-57::after,
+#node-29-57::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0.5px;
+  width: 75%;
+  border-radius: 4px 0 0 4px;
+  background-color: #C8C8D9 !important;
+}
+
+#node-18-32::after {
+  bottom: 1px;
+}
+
+#node-19-32::after {
+  top: 1px;
+}
+
+#node-3-21, #node-5-21, #node-7-21, #node-9-21, #node-11-21,
+#node-7-26, #node-7-28, #node-7-30, #node-7-32, #node-7-34,
+#node-7-36, #node-7-38, #node-7-40, #node-7-42, #node-7-44,
+#node-7-46, #node-7-48, #node-7-50, #node-7-52,
+#node-17-3, #node-17-7, #node-17-12, #node-17-17, #node-17-22,
+#node-17-27, #node-17-33, #node-17-35, #node-17-37, #node-17-39, 
+#node-17-41, #node-17-43, #node-17-45, #node-17-47, #node-17-49,
+#node-17-51, #node-17-53,
+#node-19-3, #node-19-7, #node-19-12, #node-19-17, #node-19-22,
+#node-19-27,
+#node-21-3, #node-21-7, #node-21-12, #node-21-17, #node-21-22,
+#node-21-27,
+#node-23-3, #node-23-7, #node-23-12, #node-23-17, #node-23-22,
+#node-23-27,
+#node-25-3, #node-25-7, #node-25-12, #node-25-17, #node-25-22,
+#node-25-27,
+#node-27-3, #node-27-7, #node-27-12, #node-27-17, #node-27-22,
+#node-27-27,
+#node-28-32, #node-28-34, #node-28-36, #node-28-38, #node-28-40,
+#node-28-42, #node-28-47, #node-28-49, #node-28-51, #node-28-53,
+#node-29-3, #node-29-7, #node-29-12, #node-29-17, #node-29-22,
+#node-29-27,
+#node-31-3, #node-31-7, #node-31-12, #node-31-17, #node-31-22,
+#node-31-27,
+#node-34-32, #node-34-34, #node-34-36, #node-34-38, #node-34-40,
+#node-34-42,
+#node-33-3, #node-33-7, #node-33-12, #node-33-17, #node-33-22,
+#node-35-3, #node-35-7, #node-35-12, #node-35-17, #node-35-22,
+#node-35-27 {
+  background-color: #D8DBE5 !important;
+}
+
+#node-3-21::after, #node-5-21::after, #node-7-21::after, #node-9-21::after, #node-11-21::after,
+#node-7-26::after, #node-7-28::after, #node-7-30::after, #node-7-32::after, #node-7-34::after,
+#node-7-36::after, #node-7-38::after, #node-7-40::after, #node-7-42::after, #node-7-44::after,
+#node-7-46::after, #node-7-48::after, #node-7-50::after, #node-7-52::after, #node-17-3::after, 
+#node-17-7::after, #node-17-12::after, #node-17-17::after, #node-17-22::after, #node-17-27::after,
+#node-17-33::after, #node-17-35::after, #node-17-37::after, #node-17-39::after, #node-17-41::after,
+#node-17-43::after, #node-17-45::after, #node-17-47::after, #node-17-49::after, #node-17-51::after,
+#node-17-53::after,
+#node-19-3::after, #node-19-7::after, #node-19-12::after, #node-19-17::after, #node-19-22::after,
+#node-19-27::after,
+#node-21-3::after, #node-21-7::after, #node-21-12::after, #node-21-17::after, #node-21-22::after,
+#node-21-27::after,
+#node-23-3::after, #node-23-7::after, #node-23-12::after, #node-23-17::after, #node-23-22::after,
+#node-23-27::after,
+#node-25-3::after, #node-25-7::after, #node-25-12::after, #node-25-17::after, #node-25-22::after,
+#node-25-27::after,
+#node-27-3::after, #node-27-7::after, #node-27-12::after, #node-27-17::after, #node-27-22::after,
+#node-27-27::after,
+#node-28-32::after, #node-28-34::after, #node-28-36::after, #node-28-38::after, #node-28-40::after,
+#node-28-42::after, #node-28-47::after, #node-28-49::after, #node-28-51::after, #node-28-53::after,
+#node-29-3::after, #node-29-7::after, #node-29-12::after, #node-29-17::after, #node-29-22::after,
+#node-29-27::after,
+#node-31-3::after, #node-31-7::after, #node-31-12::after, #node-31-17::after, #node-31-22::after,
+#node-31-27::after, #node-34-34::after, #node-34-36::after, #node-34-38::after, #node-34-40::after,
+#node-33-3::after, #node-33-7::after, #node-33-12::after, #node-33-17::after, #node-33-22::after,
+#node-33-27::after,
+#node-34-32::after, #node-34-42::after,
+#node-35-3::after, #node-35-7::after, #node-35-12::after, #node-35-17::after, #node-35-22::after,
+#node-35-27::after,
+#node-40-3::after, #node-40-5::after, #node-40-7::after, #node-40-9::after, #node-40-11::after, 
+#node-40-13::after, #node-40-7::after, #node-40-9::after, #node-40-11::after, #node-40-13::after, 
+#node-40-15::after, #node-40-17::after, #node-40-19::after, #node-40-21::after, #node-40-23::after, 
+#node-40-25::after, #node-40-27::after, #node-40-29::after, #node-40-31::after, #node-40-33::after, 
+#node-40-35::after, #node-40-37::after, #node-40-39::after, #node-40-41::after, #node-40-43::after {
+  content: '';
+  position: absolute;
+  bottom: 0.5px;
+  left: 0;
+  right: 0;
+  height: 75%;
+  border-radius: 4px 4px 0 0;
+  background-color: #C8C8D9 !important;
+}
+
+/* Bottom */
+
+#node-9-26, #node-9-28, #node-9-30, #node-9-32, #node-9-34,
+#node-9-36, #node-9-38, #node-9-40, #node-9-42, #node-9-44,
+#node-9-46, #node-9-48, #node-9-50, #node-9-52,
+#node-20-33,
+#node-22-33,
+#node-24-33 {
+  background-color: #D8DBE5 !important;
+}
+
+#node-8-58::after,
+#node-9-26::after, #node-9-28::after, #node-9-30::after, #node-9-32::after, #node-9-34::after,
+#node-9-36::after, #node-9-38::after, #node-9-40::after, #node-9-42::after, #node-9-44::after,
+#node-9-46::after, #node-9-48::after, #node-9-50::after, #node-9-52::after,
+#node-10-58::after,
+#node-12-58::after,
+#node-14-58::after,
+#node-16-58::after,
+#node-18-58::after,
+#node-20-33::after, #node-20-58::after,
+#node-22-33::after, #node-22-58::after,
+#node-24-33::after, #node-24-58::after,
+#node-26-58::after,
+#node-28-58::after,
+#node-30-32::after, #node-30-34::after, #node-30-36::after, #node-30-38::after, #node-30-40::after,
+#node-30-42::after, #node-30-47::after, #node-30-49::after, #node-30-51::after, #node-30-53::after,
+#node-30-58::after,
+#node-36-32::after, #node-36-34::after, #node-36-36::after, #node-36-38::after, #node-36-40::after,
+#node-36-42::after {
+  content: '';
+  position: absolute;
+  top: 0.5px;
+  left: 0;
+  right: 0;
+  height: 75%;
+  border-radius: 0 0 4px 4px;
+  background-color: #C8C8D9 !important;
+}
+
+/* Left */
+
+#node-2-20, #node-3-20, #node-4-20, #node-5-20, #node-6-20,
+#node-7-20, #node-8-20, #node-9-20, #node-10-20, #node-11-20,
+#node-12-2, #node-13-2, #node-14-2 {
+  position: relative;
+  background-color: #EBECF2 !important;
+}
+
+#node-3-20::after, #node-4-20::after, #node-5-20::after, #node-6-20::after, #node-7-20::after, 
+#node-8-20::after, #node-9-20::after, #node-10-20::after, #node-11-20::after,
+#node-13-2::after, #node-14-2::after,
+
+#node-16-2::after,
+#node-17-2::after,
+#node-18-2::after,
+#node-19-2::after,
+#node-20-2::after,
+#node-21-2::after,
+#node-22-2::after,
+#node-23-2::after,
+#node-24-2::after,
+#node-25-2::after,
+#node-26-2::after,
+#node-27-2::after,
+#node-28-2::after,
+#node-29-2::after,
+#node-30-2::after,
+#node-31-2::after,
+#node-32-2::after,
+#node-33-2::after,
+#node-34-2::after,
+#node-35-2::after,
+#node-36-2::after,
+#node-37-2::after,
+#node-39-2::after,
+#node-40-2::after, 
+#node-41-2::after,
+#node-42-2::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  background-color: #D8DBE5 !important;
+}
+
+#node-2-20::after,
+#node-12-2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  height: 75%;
+  background-color: #D8DBE5 !important;
+}
+
+#node-12-20::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 90%;
+  height: 90%;
+  background-color: #D8DBE5 !important;
+}
+
+/* Right */
+
+#node-8-53,
+#node-13-53,
+#node-18-8, #node-18-13, #node-18-18, #node-18-23, #node-18-28,
+#node-20-8, #node-20-13, #node-20-18, #node-20-23, #node-20-28,
+#node-22-8, #node-22-13, #node-22-18, #node-22-23, #node-22-28,
+#node-24-8, #node-24-13, #node-24-18, #node-24-23, #node-24-28,
+#node-26-8, #node-26-13, #node-26-18, #node-26-23, #node-26-28,
+#node-28-8, #node-28-13, #node-28-18, #node-28-23, #node-28-28,
+#node-29-33, #node-29-35, #node-29-37, #node-29-39, #node-29-41,
+#node-29-43,
+#node-30-8, #node-30-13, #node-30-18, #node-30-23, #node-30-28,
+#node-32-8, #node-32-13, #node-32-18, #node-32-23, #node-32-28,
+#node-34-8, #node-34-13, #node-34-18, #node-34-23, #node-34-28,
+#node-35-33, #node-35-35, #node-35-37, #node-35-39, #node-35-41,
+#node-35-43,
+#node-36-8, #node-36-13, #node-36-18, #node-36-23, #node-36-28 {
+  background-color: #D8DBE5 !important;
+}
+
+#node-8-53::after,
+#node-13-53::after,
+#node-18-8::after, #node-18-13::after, #node-18-18::after, #node-18-23::after, #node-18-28::after,
+#node-20-8::after, #node-20-13::after, #node-20-18::after, #node-20-23::after, #node-20-28::after,
+#node-22-8::after, #node-22-13::after, #node-22-18::after, #node-22-23::after, #node-22-28::after,
+#node-24-8::after, #node-24-13::after, #node-24-18::after, #node-24-23::after, #node-24-28::after,
+#node-26-8::after, #node-26-13::after, #node-26-18::after, #node-26-23::after, #node-26-28::after,
+#node-28-8::after, #node-28-13::after, #node-28-18::after, #node-28-23::after, #node-28-28::after,
+#node-29-33::after, #node-29-35::after, #node-29-37::after, #node-29-39::after, #node-29-41::after,
+#node-29-43::after,
+#node-30-8::after, #node-30-13::after, #node-30-18::after, #node-30-23::after, #node-30-28::after,
+#node-32-8::after, #node-32-13::after, #node-32-18::after, #node-32-23::after, #node-32-28::after,
+#node-34-8::after, #node-34-13::after, #node-34-18::after, #node-34-23::after, #node-34-28::after,
+#node-35-33::after, #node-35-35::after, #node-35-37::after, #node-35-39::after, #node-35-41::after,
+#node-35-43::after,
+#node-36-8::after, #node-36-13::after, #node-36-18::after, #node-36-23::after, #node-36-28::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1px;
+  width: 75%;
+  border-radius: 0 4px 4px 0;
+  background-color: #C8C8D9 !important;
+}
+
+#node-4-24,
+#node-6-24, #node-6-56, #node-6-54, 
+#node-10-24, #node-10-54,
+#node-12-24, #node-12-54,
+#node-14-22, #node-14-24, #node-14-54,
+#node-16-4, #node-16-9, #node-16-14, #node-16-19, #node-16-24,
+#node-16-29, #node-16-54,
+#node-16-6, #node-16-11, #node-16-16, #node-16-21, #node-16-26,
+#node-16-31,
+#node-24-53::after,
+#node-25-31, #node-25-54,
+#node-27-31, #node-27-44, #node-27-46, #node-27-54,
+#node-31-31, #node-31-44, #node-31-46,
+#node-33-31, #node-33-44, #node-33-46,
+#node-37-4, #node-37-6, #node-37-9, #node-37-11, #node-37-14, 
+#node-37-16, #node-37-19, #node-37-21, #node-37-24, #node-37-26,
+#node-37-29, #node-37-31 #node-37-44,
+#node-39-44  {
+  background-color: #FFF;
+}
+
+#node-6-24::after, #node-6-56::after, 
+#node-12-24::after,
+#node-16-6::after, #node-16-11::after, #node-16-16::after, #node-16-21::after, #node-16-26::after,
+#node-16-31::after,
+#node-27-31::after, #node-27-46::after,
+#node-33-31::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 0 0 0;
+  background-color: #D8DBE5;
+}
+
+#node-19-43::after {
+  border-radius: 8px 0 0 0;
+}
+
+#node-33-46::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 0 0 0;
+  background-color: #E6EBF0;
+}
+
+#node-4-24::after,
+#node-10-24::after,
+#node-14-24::after,
+#node-25-31::after,
+#node-31-31::after, #node-31-46::after,
+#node-37-6::after, #node-37-11::after, #node-37-16::after, #node-37-21::after, #node-37-26::after,
+#node-37-31::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 0 0 8px;
+  background-color: #D8DBE5;
+}
+
+#node-6-54::after, 
+#node-12-54::after,
+#node-16-4::after, #node-16-9::after, #node-16-14::after, #node-16-19::after, #node-16-24::after,
+#node-16-29::after, #node-16-54::after,
+#node-27-44::after, #node-27-54::after,
+#node-33-44::after,
+#node-39-44::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 8px 0 0;
+  background-color: #D8DBE5;
+}
+
+#node-19-53::after {
+  border-radius: 0 8px 0 0;
+}
+
+#node-10-54::after,
+#node-14-22::after, #node-14-54::after,
+#node-25-54::after,
+#node-31-44::after,
+#node-37-4::after, #node-37-9::after, #node-37-14::after, #node-37-19::after, #node-37-24::after, 
+#node-37-29::after, #node-37-44::after   {  
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 0 8px 0;
+  background-color: #D8DBE5;
+}
+
+#node-24-53::after {
+  border-radius: 0 0 8px 0;
+}
+
+#node-24-43::after {
+  border-radius: 0 0 0 8px;
+}
+
+/* ** */
+
+#node-15-2::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+}
+
+.node-label {
+  color: #FFF;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.wall {
+  background-color: #EBECF2;
+}
+
+.node-wall {
+  background-color: rgb(12, 53, 71);
+}
+
+.node-shortest-path {
+  animation-name: shortestPath;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes shortestPath {
+  0% {
+    transform: scale(0.6);
+    background-color: #28CE28;
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: #28CE28;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: #28CE28;
+  }
+}
+
+.searchButton {
+  margin-top: 10px;
+}

@@ -1,0 +1,97 @@
+#notifications {
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
+  padding: 48px 20px 24px;
+  background-color: var(--lavander-mist);
+}
+
+/* Cointainer */
+
+#notifications > .container {
+  display: grid;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+/* Heading */
+
+#notifications > .container > h1 {
+  margin-bottom: 8px;
+  font-family: 'SFProDisplay-Bold';
+  font-size: 22px;
+}
+
+/* List */
+
+#notifications > .container > .list {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+}
+
+#notifications > .container > .list > .item {
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  width: 100%;
+  box-shadow: -5px 10px 20px rgba(187, 187, 187, 0.25);
+  border-radius: 16px;
+  background-color: var(--white);
+}
+
+#notifications > .container > .list > .item > .badge {
+  width: 36px;
+  height: 32px;
+  margin-right: 12px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+#notifications > .container > .list > .item > div {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding-right: 4px;
+}
+
+#notifications > .container > .list > .item > div > .titleAndDate {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+#notifications > .container > .list > .item > div > .titleAndDate > .title {
+  margin-right: 8px;
+  font-family: 'SFProDisplay-Bold';
+  font-size: 14px;
+  font-weight: 00;
+}
+
+#notifications > .container > .list > .item > div > .titleAndDate > .date {
+  color: var(--carbon-grey);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#notifications > .container > .list > .item > div > p {
+  color: var(--carbon-grey);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Screen Width: 390px */
+
+@media only screen and (min-width: 390px) {
+  /* Container */
+
+  #notifications > .container {
+    margin-top: 48px;
+  }
+
+  /* Heading */
+
+  #notifications > .container > h1 {
+    font-size: 24px;
+  }
+}

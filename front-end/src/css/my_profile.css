@@ -1,0 +1,61 @@
+#my_profile {
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
+  padding: 48px 20px 96px;
+  background-color: var(--white);
+}
+
+/* Cointainer */
+
+#my_profile > .container {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+/* Heading */
+
+#my_profile > .container > h1 {
+  font-family: 'SFProDisplay-Bold';
+  font-size: 40px;
+}
+
+/* Info */
+
+#my_profile > .container > .info {
+  display: grid;
+  gap: 40px;
+}
+
+#my_profile > .container > .info > div {
+  display: grid;
+  gap: 32px;
+}
+
+#my_profile > .container > .info > div h2 {
+  font-family: 'SFProDisplay-Bold';
+  font-size: 18px;
+}
+
+/* Edit Button */
+
+#my_profile > .btn.circle {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+}
+
+/* Screen Width: 390px */
+
+@media only screen and (min-width: 390px) {
+  /* Container */
+
+  #my_profile > .container {
+    margin-top: 48px;
+  }
+
+  #my_profile > .container > .info > div h2 {
+    font-size: 20px;
+  }
+}
