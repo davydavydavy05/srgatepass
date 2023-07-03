@@ -86,3 +86,5 @@ app.get('/api/hello', (req, res) => {
 
 // Start the server
 server.listen(port, () => console.log(`Server started on port ${port}`))
+
+module.exports = server;
