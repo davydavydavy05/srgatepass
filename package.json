@@ -1,3 +1,30 @@
 {
-  "dependencies": {}
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "SR Gate Pass App Back-End",
+  "main": "server.js",
+  "type": "module",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "author": "Sonny Carlos",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.2",
+    "nodemailer": "^6.9.3",
+    "password-validator": "^5.3.0",
+    "socket.io": "^4.7.1",
+    "socket.io-client": "^4.7.1"
+  }
 }
