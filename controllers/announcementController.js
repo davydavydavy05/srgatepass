@@ -143,8 +143,8 @@ const postAnnouncement = asyncHandler(async (req, res) => {
   throw new Error('Error.')
 })
 
-export {
-  fetchAnnouncements,
-  fetchAnnouncement,
-  postAnnouncement
-}
+// export {
+//   fetchAnnouncements,
+//   fetchAnnouncement,
+//   postAnnouncement
+// }
