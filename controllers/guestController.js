@@ -203,9 +203,9 @@ const bookGuest = asyncHandler(async (req, res) => {
   }
 })
 
-// export {
-//   fetchGuests,
-//   fetchGuest,
-//   bookGuest,
-//   checkIfGuestExists
-// }
+export {
+  fetchGuests,
+  fetchGuest,
+  bookGuest,
+  checkIfGuestExists
+}

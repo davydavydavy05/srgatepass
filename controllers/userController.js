@@ -712,5 +712,5 @@ export {
   updateUser,
   approveUser,
   fetchApplication,
- 
+  markNotificationAsRead
 }
