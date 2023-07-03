@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "back-end/server.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/user/(.*)",
+            "dest": "back-end/server.js"
+        },
+        {
+            "src": "/api/guest/(.*)",
+            "dest": "back-end/server.js"
+        },
+        {
+            "src": "/api/announcement/(.*)",
+            "dest": "back-end/server.js"
+        },
+        {
+            "src": "/api/hello",
+            "dest": "back-end/server.js"
+        }
+    ]
+}
