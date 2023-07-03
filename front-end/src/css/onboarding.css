@@ -1,0 +1,141 @@
+#onboarding {
+  position: relative;
+  overflow-x: hidden;
+  display: grid;
+  padding: 48px 20px 80px;
+}
+
+#onboarding > header > * {
+  transition-duration: 0.3s;
+}
+
+/* Ghost Header */
+
+#ghostHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  z-index: 99;
+  width: 100%;
+  height: 64px;
+  box-shadow: 0px 4px 16px rgba(139, 139, 139, 0.25);
+  background-color: var(--white);
+}
+
+/* Brand Logo */
+
+#onboarding > img {
+  margin-bottom: 64px;
+}
+
+/* Back Button */
+
+#onboarding > .btn {
+  z-index: 99;
+  margin-bottom: 24px;
+}
+
+/* Header */
+
+#onboarding > header {
+  display: grid;
+  gap: 12px;
+}
+
+#onboarding > header > h1 {
+  font-family: 'SFProDisplay-Bold';
+  font-size: 40px;
+}
+
+#onboarding > header > p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Progress Bar */
+
+#onboarding > .progress-bar {
+  z-index: 99;
+  margin: 64px 0 48px;
+}
+
+/* Form */
+
+#onboarding > form > h2 {
+  font-family: 'SFProDisplay-Bold';
+  font-size: 18px;
+}
+
+#onboarding > form > .inputFields {
+  display: grid;
+  gap: 32px;
+  margin: 48px 0 0;
+}
+
+#onboarding > form > .inputFields > .files {
+  display: none;
+}
+
+#onboarding > form > #error-message {
+  display: none;
+  margin-top: 24px;
+}
+
+#onboarding > form > .actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 80px;
+}
+
+#onboarding > form > .actions > * {
+  width: 100%;
+}
+
+/* Privacy Policy */
+
+#onboarding > .privacyPolicy {
+  margin-top: 64px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#onboarding > .privacyPolicy > a {
+  color: var(--boring-green);
+}
+
+/* Screen Width: 390px */
+
+@media only screen and (min-width: 390px) {
+  /* Form */
+
+  #onboarding > form > h2 {
+    font-size: 20px;
+  }
+
+  #onboarding > form > .inputFields {
+    gap: 40px;
+  }
+
+  #onboarding > .privacyPolicy {
+    margin-top: 80px;
+  }
+}
+
+/* Screen Width: 410px */
+
+@media only screen and (min-width: 410px) {
+  #onboarding {
+    padding-top: 64px;
+  }
+
+  /* Brand Logo */
+  
+  #onboarding > img {
+    margin-bottom: 96px;
+  }
+
+  #onboarding > header > p {
+    font-size: 18px;
+  }
+}

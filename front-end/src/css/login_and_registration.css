@@ -1,0 +1,103 @@
+#login_and_registration {
+  overflow-x: hidden;
+  display: grid;
+  padding: 48px 20px 80px;
+}
+
+/* Header */
+
+#login_and_registration > header {
+  display: grid;
+  gap: 12px;
+  margin: 64px 0 64px;
+}
+
+#login_and_registration > header > h1 {
+  font-family: 'SFProDisplay';
+  font-size: 40px;
+}
+
+#login_and_registration > header > p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Form */
+
+#login_and_registration > form > .inputFields {
+  display: grid;
+  gap: 32px;
+}
+
+#login_and_registration > form > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0 0 !important;
+}
+
+#login_and_registration > form > #error-message {
+  display: none;
+  margin-top: 24px;
+}
+
+#login_and_registration > form > .btn-container {
+  margin: 80px 0 40px;
+}
+
+#login_and_registration > form > .loginLink,
+#login_and_registration > form > .registrationLink {
+  text-align: center;
+  font-size: 14px;
+}
+
+#login_and_registration > form > .loginLink > p > a,
+#login_and_registration > form > .registrationLink > p > a {
+  color: var(--boring-green);
+}
+
+/* Screen Width: 390px */
+
+@media only screen and (min-width: 390px) {
+  /* Form */
+
+  #login_and_registration > form > .inputFields {
+    gap: 40px;
+  }
+
+  #login_and_registration > form > div:nth-child(2) {
+    margin-bottom: 80px;
+  }
+
+  #login_and_registration > form > .btn-container {
+    margin-bottom: 48px;
+  }
+}
+
+/* Screen Width: 410px */
+
+@media only screen and (min-width: 410px) {
+  #login_and_registration {
+    padding-top: 64px;
+  }
+
+  /* Header */
+
+  #login_and_registration > header {
+    margin: 96px 0 80px;
+  }
+
+  #login_and_registration > header > p {
+    font-size: 18px;
+  }
+}
+
+/* Screen Height: 1520px */
+
+@media only screen and (min-height: 1020px) {
+  /* Header */
+
+  #login_and_registration > header {
+    margin-top: 180px;
+  }
+}

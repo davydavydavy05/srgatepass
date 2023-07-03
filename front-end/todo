@@ -1,0 +1,6 @@
+* Phone number input field must be numbers only
+* Responsiveness
+* Button loading animation
+* Proper load of data using setTimeout()
+* Replace localStorage to sessionStorage
+* File max size

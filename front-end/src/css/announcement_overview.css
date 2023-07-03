@@ -1,0 +1,85 @@
+#announcement_overview {
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
+  padding: 24px 20px 24px;
+  background-color: var(--white);
+}
+
+/* Cointainer */
+
+#announcement_overview > .container {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* Header */
+
+#announcement_overview > .container > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 8px;
+}
+
+#announcement_overview > .container > header > h1 {
+  font-family: 'SFProDisplay-Bold';
+  font-size: 22px;
+}
+
+#announcement_overview > .container > .content {
+  display: grid;
+  gap: 24px;
+}
+
+#announcement_overview > .container > .content > .titleAndDate {
+  display: grid;
+  gap: 4px;
+}
+
+#announcement_overview > .container > .content > .titleAndDate > .title {
+  font-family: 'SFProDisplay-Bold';
+  font-size: 20px;
+}
+
+#announcement_overview > .container > .content > .titleAndDate > .date {
+  color: var(--carbon-grey);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#announcement_overview > .container > .content > p {
+  color: var(--carbon-grey);
+  line-height: 20px;
+}
+
+#announcement_overview > .container > .content > .images {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 4px;
+  width: 100%;
+}
+
+#announcement_overview > .container > .content > .images > div {
+  width: 100%;
+  border-radius: 4px;
+  background: var(--lavander-mist);
+}
+
+/* Screen Width: 390px */
+
+@media only screen and (min-width: 390px) {
+  /* Container */
+
+  #announcement_overview > .container {
+    margin-top: 24px;
+  }
+
+  /* Heading */
+
+  #announcement_overview > .container > header > h1 {
+    font-size: 24px;
+  }
+}
