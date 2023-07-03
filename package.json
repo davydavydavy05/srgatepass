@@ -2,14 +2,14 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "SR Gate Pass App Back-End",
-  "main": "server.js",
+  "main": "api/index.js",
   "type": "module",
   "engines": {
     "node": "14.x"
   },
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js"
+    "start": "node api/index.js",
+    "server": "nodemon api/index.js"
   },
   "author": "Sonny Carlos",
   "license": "ISC",
