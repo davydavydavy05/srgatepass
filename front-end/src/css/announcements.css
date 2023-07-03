@@ -1,0 +1,101 @@
+#announcements {
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
+  padding: 48px 20px 24px;
+  background-color: var(--lavander-mist);
+}
+
+/* Container */
+
+#announcements > .container {
+  display: grid;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+/* Heading */
+
+#announcements > .container > h1 {
+  margin-bottom: 8px;
+  font-family: 'SFProDisplay-Bold';
+  font-size: 20px;
+}
+
+/* List */
+
+#announcements > .container > .list {
+  display: grid;
+  gap: 16px;
+}
+
+#announcements > .container > .list > .item {
+  display: grid;
+  gap: 24px;
+  padding: 16px 16px 24px;
+  border-radius: 16px;
+  background-color: var(--white);
+}
+
+#announcements > .container > .list > .item > .pin {
+  justify-self: end;
+  margin-bottom: -8px;
+}
+
+#announcements > .container > .list > .item > .titleAndDate {
+  display: grid;
+  gap: 4px;
+}
+
+#announcements > .container > .list > .item > .titleAndDate > .title {
+  font-family: 'SFProDisplay-Bold';
+  font-size: 16px;
+  font-weight: 800;
+}
+
+#announcements > .container > .list > .item > .titleAndDate > .date {
+  color: var(--carbon-grey);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#announcements > .container > .list > .item > p {
+  display: inline;
+  color: var(--carbon-grey);
+  line-height: 18px;
+  font-weight: 500;
+}
+
+#announcements > .container > .list > .item > p > button {
+  display: inline;
+  margin-left: 4px;
+}
+
+#announcements > .container > .list > .item > .images {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 4px;
+  width: 100%;
+}
+
+#announcements > .container > .list > .item > .images > div {
+  width: 100%;
+  border-radius: 4px;
+  background: var(--lavander-mist);
+}
+
+/* Screen Width: 390px */
+
+@media only screen and (min-width: 390px) {
+  /* Container */
+
+  #announcements > .container {
+    margin-top: 48px;
+  }
+
+  /* Heading */
+
+  #announcements > .container > h1 {
+    font-size: 24px;
+  }
+}

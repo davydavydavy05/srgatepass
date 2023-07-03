@@ -1,0 +1,78 @@
+#guest_overview {
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
+  padding: 24px 20px 24px;
+  background-color: var(--white);
+}
+
+/* Header */
+
+#guest_overview > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 24px;
+}
+
+#guest_overview > header > h1 {
+  font-family: 'SFProDisplay-Bold';
+  font-size: 20px;
+}
+
+/* Info */
+
+#guest_overview > .info {
+  display: grid;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* Actions */
+
+#guest_overview > .actions {
+  position: fixed;
+  left: 24px;
+  right: 24px;
+  bottom: 40px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 12px;
+}
+
+#guest_overview > .actions > .btn {
+  width: 100%;
+  font-size: 12px;
+}
+
+/* Screen Width: 390px */
+
+@media only screen and (min-width: 390px) {
+  /* Header */
+
+  #guest_overview > header {
+    margin-top: 32px;
+  }
+
+  #guest_overview > header > h1 {
+    font-size: 24px;
+  }
+
+  /* Info */
+
+  #guest_overview > .info {
+    gap: 40px;
+  }
+}
+
+/* Screen Width: 410px */
+
+@media only screen and (min-width: 410px) {
+  /* Actions */
+
+  #guest_overview > .actions > .btn {
+    font-size: 14px;
+  }
+}
