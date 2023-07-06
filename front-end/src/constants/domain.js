@@ -1,3 +1,3 @@
-const domain = 'http://localhost:8000/'
+const domain = 'http://54.254.170.185/'
 
 export default domain
