@@ -21,14 +21,22 @@ const port = process.env.PORT || 5000
 const server = http.createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3000', // Replace with your client's origin
+    origin: '*', // Replace with your client's origin
     methods: ['GET', 'POST', 'PUT'],
     credentials: true,
   },
 })
 
+
+
 const _dirname = path.dirname("")
 const buildPath = path.join(_dirname , "../front-end/build");
+
+// Middlewares
+app.use(cors({ 
+  origin: '*', 
+  credentials: true 
+})) // Allow CORS for all routes
 
 app.use(express.static(buildPath))
 
@@ -41,11 +49,6 @@ app.get("/*", function(req, res){
   )
 })
 
-// Middlewares
-app.use(cors({ 
-  origin: true, 
-  credentials: true 
-})) // Allow CORS for all routes
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
