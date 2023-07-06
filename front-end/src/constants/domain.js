@@ -1,3 +1,3 @@
-const domain = 'http://54.254.170.185/'
+const domain = 'http://54.255.200.212/'
 
 export default domain
