@@ -5,7 +5,7 @@ import express from 'express'
 import http from 'http'
 import { Server } from 'socket.io'
 
-import path from 'path'
+// import path from 'path'
 
 import dbConnect from './config/database.js'
 import { 
@@ -21,7 +21,7 @@ const port = process.env.PORT || 5000
 const server = http.createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: '*', // Replace with your client's origin
+    origin: true, // Replace with your client's origin
     methods: ['GET', 'POST', 'PUT'],
     credentials: true,
   },
@@ -29,30 +29,30 @@ const io = new Server(server, {
 
 
 
-const _dirname = path.dirname("")
-const buildPath = path.join(_dirname , "../front-end/build");
+// const _dirname = path.dirname("")
+// const buildPath = path.join(_dirname , "../front-end/build");
 
 
 // Middlewares
 app.use(cors({ 
-  origin: '*', 
+  origin: true, 
   credentials: true 
 })) // Allow CORS for all routes
 
-app.use(express.static(buildPath))
+// app.use(express.static(buildPath))
 
-app.get("/*", function(req, res){
+// app.get("/*", function(req, res){
 
-    res.sendFile(
-        path.join(__dirname, "../front-end/build/index.html"),
-        function (err) {
-          if (err) {
-            res.status(500).send(err);
-          }
-        }
-      );
+//     res.sendFile(
+//         path.join(__dirname, "../front-end/build/index.html"),
+//         function (err) {
+//           if (err) {
+//             res.status(500).send(err);
+//           }
+//         }
+//       );
 
-})
+// })
 
 
 
