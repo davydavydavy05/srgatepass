@@ -20,7 +20,7 @@ const port = process.env.PORT || 5000
 const server = http.createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: 'https://sr-front-end.web.app', // Replace with your client's origin
+    origin: 'https://srgatepass-43131.web.app', // Replace with your client's origin
     methods: ['GET', 'POST', 'PUT'],
     credentials: true,
   },
