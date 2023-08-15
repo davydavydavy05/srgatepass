@@ -561,6 +561,9 @@ const getResidentProfileBookingNum = async (req, res) => {
                   icon:"favicon.ico",
                   //default_sound:true
                   sound: "srnorif.mp3"
+                  },
+                  data: {
+                    sound: "srnorif.mp3"
                   }
               },  
               // android: {
