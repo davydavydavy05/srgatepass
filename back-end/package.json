@@ -11,7 +11,6 @@
   "author": "Sonny Carlos",
   "license": "ISC",
   "dependencies": {
-    "@vonage/server-sdk": "^3.7.2",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",

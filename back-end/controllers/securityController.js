@@ -36,12 +36,12 @@ admin.initializeApp({
 });
 
 
-import {Vonage} from '@vonage/server-sdk'
+//import {Vonage} from '@vonage/server-sdk'
 
-const vonage = new Vonage({
-  apiKey: "3b512d6d",
-  apiSecret: "P9NIWAIw3F0puho2"
-})
+// const vonage = new Vonage({
+//   apiKey: "3b512d6d",
+//   apiSecret: "P9NIWAIw3F0puho2"
+// })
 
 
 
