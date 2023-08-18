@@ -39,6 +39,7 @@ const signIn = asyncHandler(async (req, res) => {
       httpOnly: true, // Only accessible via HTTP requests
       secure: true, // Set to true in production with HTTPS
       sameSite: 'none',
+      domain: '.web.app'
     })
     
 
