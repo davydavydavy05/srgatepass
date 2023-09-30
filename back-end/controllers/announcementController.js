@@ -12,8 +12,16 @@ const vonage = new Vonage({
 // @desc    Fetch announcements
 // @route   POST /api/announcement/fetch-announcements
 // @access  Public
+// const fetchAnnouncements = asyncHandler(async (req, res) => {
+//   const announcements = await Announcement.find({});
+
+//   return res.status(200).json(announcements);
+// });
+// @desc    Fetch announcements
+// @route   POST /api/announcement/fetch-announcements
+// @access  Public
 const fetchAnnouncements = asyncHandler(async (req, res) => {
-  const announcements = await Announcement.find({});
+  const announcements = await Announcement.find({ heading: { $exists: true } });
 
   return res.status(200).json(announcements);
 });
