@@ -14,7 +14,7 @@ import { protect } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-router.get("/fetch-guest", fetchGuest);
+router.post("/fetch-guest", fetchGuest);
 router.get("/fetch-guests", protect, fetchGuests);
 router.post("/book-guest", protect, bookGuest);
 router.post("/check-if-guest-exists", protect, checkIfGuestExists);
