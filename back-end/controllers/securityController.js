@@ -1145,7 +1145,7 @@ const addVisitor = asyncHandler(async (req, res) => {
   const {
     bookingNumber,
     time,
-    details,
+    details
     // name,
   } = req.body;
   // timeArrived: { date: datePart, time: timePart }
@@ -1242,6 +1242,187 @@ const addVisitor = asyncHandler(async (req, res) => {
   }
 });
 
+const updatedVisitor = asyncHandler(async (req, res) => {
+  try {
+    const { bookingNumber, time, details, inOrOut} = req.body;
+    const guestNamesArr = req.body["name[]"];
+    console.log(req.body);
+    // const currentTime = new Date().toLocaleTimeString("en-US", {
+    //   timeZone: "Asia/Manila",
+    // });
+    const currentDateTime = new Date().toLocaleString("en-US", {
+      timeZone: "Asia/Manila",
+    });
+
+    const [datePart, timePart] = currentDateTime.split(", ");
+   
+    let updatedGuest
+
+       if(inOrOut == "out"){
+      // Assuming you have a User model
+       updatedGuest = await Guest.findOneAndUpdate(
+        { bookingNumber: bookingNumber }, // Use your criteria to identify the user based on userId
+        {
+          $set: {
+            timeOut : { date: datePart, time: time },
+            name: guestNamesArr,
+            details
+          }
+        },
+        { new: true }
+      );
+      if(updatedGuest)
+      {
+        console.log(updatedGuest)
+      }
+
+    } 
+
+    else if(inOrOut == "in" && time==''){
+      // Assuming you have a User model
+       updatedGuest = await Guest.findOneAndUpdate(
+        { bookingNumber: bookingNumber }, // Use your criteria to identify the user based on userId
+        {
+          $set: {
+            timeArrived: { date: datePart, time: timePart },
+            name: guestNamesArr,
+            details
+          }
+        },
+        { new: true }
+      );
+      if(updatedGuest)
+      {
+        console.log(updatedGuest)
+      }
+
+    }
+    else if(!time==''){
+      // Assuming you have a User model
+       updatedGuest = await Guest.findOneAndUpdate(
+        { bookingNumber: bookingNumber }, // Use your criteria to identify the user based on userId
+        {
+          $set: {
+            timeArrived: { date: datePart, time: time },
+            name: guestNamesArr,
+            details
+          }
+        },
+        { new: true }
+      );
+      if(updatedGuest)
+      {
+        console.log(updatedGuest)
+      }
+
+    } else{
+       updatedGuest = await Guest.findOneAndUpdate(
+        { bookingNumber: bookingNumber }, // Use your criteria to identify the user based on userId
+        {
+          $set: {
+            name: guestNamesArr,
+            details
+          },
+        },
+        { new: true }
+      );
+      if(updatedGuest)
+      {
+        console.log(updatedGuest)
+      }
+
+    }
+    
+    // if (time == "" & inOrOut == "out") {
+    //   const updatedGuest = await Guest.findOneAndUpdate(
+    //     { bookingNumber: bookingNumber }, // Use your criteria to identify the user based on userId
+    //     {
+    //       $set: {
+    //         name: guestNamesArr,
+    //       },
+    //       details,
+    //       $push:{
+    //         timeOut : { date: datePart, time: timePart }
+    //       },
+    //     },
+        
+    //     { new: true }
+    //   );
+
+    //   if(updatedGuest)
+    //   {
+    //     console.log(updatedGuest)
+    //   }
+    // } 
+    // else if (time == "") {
+    //   const updatedGuest = await Guest.findOneAndUpdate(
+    //     { bookingNumber: bookingNumber }, // Use your criteria to identify the user based on userId
+    //     {
+    //       $set: {
+    //         name: guestNamesArr,
+    //       },
+    //       details,
+    //     },
+    //     { new: true }
+    //   );
+    //   if(updatedGuest)
+    //   {
+    //     console.log(updatedGuest)
+    //   }
+    // } else if(inOrOut == "out"){
+    //   // Assuming you have a User model
+    //   const updatedGuest = await Guest.findOneAndUpdate(
+    //     { bookingNumber: bookingNumber }, // Use your criteria to identify the user based on userId
+    //     {
+    //       $set: {
+    //         timeArrived: { date: datePart, time: time },
+    //         name: guestNamesArr,
+    //       },
+    //       details,
+    //       $push:{
+    //         timeOut : { date: datePart, time: timePart }
+    //       },
+    //     },
+    //     { new: true }
+    //   );
+    //   if(updatedGuest)
+    //   {
+    //     console.log(updatedGuest)
+    //   }
+
+    // } else{
+    //   const updatedGuest = await Guest.findOneAndUpdate(
+    //     { bookingNumber: bookingNumber }, // Use your criteria to identify the user based on userId
+    //     {
+    //       $set: {
+    //         timeArrived: { date: datePart, time: time },
+    //         name: guestNamesArr,
+    //       },
+    //       details,
+    //     },
+    //     { new: true }
+    //   );
+    //   if(updatedGuest)
+    //   {
+    //     console.log(updatedGuest)
+    //   }
+
+    // }
+    return res.status(200).json(updatedGuest);
+
+
+  } catch (error) {
+    console.error("Error updating user status:", error);
+    res.status(500).json({ message: "Internal server error." });
+  }
+});
+
+const fetchVisitor = asyncHandler(async (req, res) => {
+  const { bookingNumber } = req.body;
+  const guest = await Guest.findOne({ bookingNumber: bookingNumber })
+  return res.status(200).json(guest);
+});
+
 export {
   getResidentProfileRfid,
   getResidentProfileQr,
@@ -1256,4 +1437,5 @@ export {
   manageTimeOutWorker,
   manageOfflineGuestRecords,
   addVisitor,
+  updatedVisitor,fetchVisitor
 };

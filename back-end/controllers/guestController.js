@@ -11,18 +11,19 @@ const fetchGuests = asyncHandler(async (req, res) => {
   try {
     var guests;
 
-    // Return all the guests with isCancel set to false
-    if (!userId) {
-      guests = await Guest.find({ isCanceled: false }).populate("host");
-    } else {
-      guests = await Guest.find({ host: userId, isCanceled: false });
-    }
-    // // Return all the guests
+    // // Return all the guests with isCancel set to false
     // if (!userId) {
-    //   guests = await Guest.find().populate('host')
+    //   guests = await Guest.find({ isCanceled: false }).populate("host");
     // } else {
-    //   guests = await Guest.find({ host: userId })
+    //   guests = await Guest.find({ host: userId, isCanceled: false });
     // }
+
+    // Return all the guests
+    if (!userId) {                                              
+      guests = await Guest.find().populate('host')
+    } else {
+      guests = await Guest.find({ host: userId })
+    }
 
     return res.status(200).json(guests);
   } catch (error) {
@@ -379,6 +380,7 @@ const unlockGatePass = asyncHandler(async (req, res) => {
   }
 });
 
+
 const updateUserCancelStatus = asyncHandler(async (req, res) => {
   try {
     const { id } = req.body;
@@ -387,7 +389,14 @@ const updateUserCancelStatus = asyncHandler(async (req, res) => {
     // Assuming you have a User model
     const updatedGuest = await Guest.findOneAndUpdate(
       { _id: id }, // Use your criteria to identify the user based on userId
-      { $set: { isCanceled: true } }, // Update or add the isCancel field to true
+      { 
+        $set: { isCanceled: true }, 
+        $pop: { 
+          dateOfArrival: 1, // Remove the last object from dateOfArrival
+          time: 1,          // Remove the last object from time
+          dateBooked: 1     // Remove the last object from dateBooked
+        } 
+      },
       { new: true }
     );
 
@@ -405,6 +414,35 @@ const updateUserCancelStatus = asyncHandler(async (req, res) => {
     res.status(500).json({ message: "Internal server error." });
   }
 });
+
+
+// const updateUserCancelStatus = asyncHandler(async (req, res) => {
+//   try {
+//     const { id } = req.body;
+
+//     const io = req.app.locals.io;
+//     // Assuming you have a User model
+//     const updatedGuest = await Guest.findOneAndUpdate(
+//       { _id: id }, // Use your criteria to identify the user based on userId
+//       { $set: { isCanceled: true }, $pop: { dateOfArrival: -1, time: -1 ,dateBooked : -1} }, // Update isCancel field to true and remove the last elements from dateOfArrival and time arrays
+//       { new: true }
+//     );
+
+//     if (updatedGuest) {
+//       console.log("User token updated:", updatedGuest);
+//       res.status(200).json({ message: "Guest isCancel updated successfully." });
+//       const guestCount = await Guest.countDocuments();
+//       io.emit("guestCount", guestCount);
+//     } else {
+//       console.log("User not found.");
+//       res.status(404).json({ message: "Guest not found." });
+//     }
+//   } catch (error) {
+//     console.error("Error updating user token:", error);
+//     res.status(500).json({ message: "Internal server error." });
+//   }
+// });
+
 
 const editGuest = asyncHandler(async (req, res) => {
   try {
@@ -433,6 +471,253 @@ const editGuest = asyncHandler(async (req, res) => {
   }
 });
 
+const reBookGuest = asyncHandler(async (req, res) => {
+  const {
+    bookingNumber,
+    dateOfArrival,
+    details,
+    phoneNumber,
+    plateNumber,
+    pin, emailAddress
+  } = req.body;
+
+  const io = req.app.locals.io;
+
+  if (!phoneNumber || !pin) {
+    res.status(400);
+    throw new Error("Input all the fields.");
+  }
+  
+  const guestNamesArr = req.body["name[]"];
+  const timeFrom = req.body["time[from]"];
+  const timeTo = req.body["time[to]"];
+
+  const timeObject = {
+    from: timeFrom,
+    to: timeTo,
+  };
+
+  console.log("name array", guestNamesArr);
+  console.log("time obj", timeObject);
+  console.log("body", req.body);
+
+  const guest = await Guest.findOneAndUpdate(
+    { bookingNumber: bookingNumber }, // Find the guest by booking number
+    {
+      name: guestNamesArr,
+      phoneNumber,
+      plateNumber,
+      pin,
+      $push: { time: timeObject , dateOfArrival, dateBooked: Date.now() }, // Add the new time object to the array
+      details,
+      isCanceled: false
+    },
+    { new: true } // Return the updated document
+  );
+  
+
+  if (guest) {
+    const notification = await Notification.create({
+      type: "guest",
+      heading: "Guest rebooked!",
+      body: "Guest rebooked successfully.",
+      dateCreated: Date.now(),
+      otherDetails: {
+        guestId: guest._id,
+      },
+    });
+
+    await User.updateMany(
+      { emailAddress },
+      {
+        $push: {
+          notifications: {
+            notificationId: notification._id,
+            type: "guest",
+            heading: "Your guest have been rebooked!",
+            body: "The gate pass of your guest is still valid.",
+            dateCreated: Date.now(),
+            isRead: false,
+            otherDetails: {
+              guestId: guest._id,
+            },
+          },
+        },
+      }
+    );
+
+    await User.updateMany(
+      { type: "admin" }, // Query to find users with type 'admin'
+      {
+        $push: {
+          notifications: {
+            notificationId: notification._id,
+            type: "guest",
+            heading: "Guest rebooked",
+            body: "Guest rebooked successfully.",
+            dateCreated: Date.now(),
+            isRead: false,
+            otherDetails: {
+              guestId: guest._id,
+            },
+          },
+        },
+      }
+    );
+
+    io.emit("notification", notification);
+
+    res.status(200).json({ guest });
+  } else {
+    res
+      .status(400)
+      .json({ errorMessage: `Error. Guest not found.` });
+    throw new Error(`Error. Guest not found.`);
+  }
+});
+
+
+// const reBookGuest = asyncHandler(async (req, res) => {
+//   const {
+//     bookingNumberToEdit,
+//     dateOfArrival,
+//     details,
+//     // name,
+//     phoneNumber,
+//     plateNumber,
+//     qrCodeImage,
+//     pin,
+//     emailAddress,
+//   } = req.body;
+
+//   const io = req.app.locals.io;
+
+//   if (!phoneNumber || !pin) {
+//     res.status(400);
+//     throw new Error("Input all the fields.");
+//   }
+//   const guestNamesArr = req.body["name[]"];
+
+//   // Extract time values
+//   const timeFrom = req.body["time[from]"];
+//   const timeTo = req.body["time[to]"];
+
+//   // Create the time object
+//   const timeObject = {
+//     from: timeFrom,
+//     to: timeTo,
+//   };
+//   // const guestNamesArr = Object.keys(req.body)
+//   // .filter(key => key.startsWith('name['))
+//   // .map(key => req.body[key]);
+
+//   // Copy landCertificate values into an array
+//   // const landCertificateArr = Object.keys(req.body)
+//   // .reduce((arr, key) => {
+//   //   const match = key.match(/landCertificate\[(\d+)\]\[(\w+)\]/)
+
+//   //   if (match) {
+//   //     const index = Number(match[1])
+//   //     const property = match[2]
+
+//   //     if (!arr[index]) {
+//   //       arr[index] = {}
+//   //     }
+
+//   //     arr[index][property] = req.body[key]
+//   //   }
+
+//   //   return arr
+//   // }, [])
+
+//   console.log("name array", guestNamesArr);
+//   console.log("time obj", timeObject);
+//   console.log("body", req.body);
+
+//   // If not exists
+//   const guest = await Guest.create({
+//     bookingNumber,
+//     host,
+//     name: guestNamesArr,
+//     phoneNumber,
+//     plateNumber,
+//     dateBooked: Date.now(),
+//     qrCodeImage,
+//     pin,
+//     dateOfArrival,
+//     time: [timeObject],
+//     details,
+//     type: "Guest",
+//   });
+//   const guestCount = await Guest.countDocuments();
+
+
+//   const result = await Guest.updateOne(
+//     { _id: guest._id },
+//     { $set: { urlLink: `localhost:3000/${guest._id}` } }
+//   );
+
+//   if (result) {
+//     const notification = await Notification.create({
+//       type: "guest",
+//       heading: "Guest Booked!",
+//       body: "Guest successfully booked.",
+//       dateCreated: Date.now(),
+//       otherDetails: {
+//         guestId: guest._id,
+//       },
+//     });
+
+//     await User.updateMany(
+//       { emailAddress },
+//       {
+//         $push: {
+//           notifications: {
+//             notificationId: notification._id,
+//             type: "guest",
+//             heading: "Your guest has been booked!",
+//             body: "The gate pass of your guest is valid for 24 hours only.",
+//             dateCreated: Date.now(),
+//             isRead: false,
+//             otherDetails: {
+//               guestId: guest._id,
+//             },
+//           },
+//         },
+//       }
+//     );
+
+//     await User.updateMany(
+//       { type: "admin" }, // Query to find users with type 'admin'
+//       {
+//         $push: {
+//           notifications: {
+//             notificationId: notification._id,
+//             type: "guest",
+//             heading: "New Guest Booked",
+//             body: "New Guest Booked.",
+//             dateCreated: Date.now(),
+//             isRead: false,
+//             otherDetails: {
+//               guestId: guest._id,
+//             },
+//           },
+//         },
+//       }
+//     );
+
+//     io.emit("guestCount", guestCount);
+//     io.emit("notification", notification);
+
+//     res.status(200).json({ guest });
+//   } else {
+//     res
+//       .status(400)
+//       .json({ errorMessage: `Error. There's a problem encountered.` });
+//     throw new Error(`Error. There's a problem encountered.`);
+//   }
+// });
+
 export {
   fetchGuests,
   fetchGuest,
@@ -441,5 +726,6 @@ export {
   unlockGatePass,
   updateUserCancelStatus,
   fetchGuestNameCount,
-  editGuest,
+  editGuest,reBookGuest
 };
+

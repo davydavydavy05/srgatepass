@@ -13,6 +13,7 @@ import {
   addVisitor,
   manageTimeInWorker,
   manageTimeOutWorker,
+  updatedVisitor,fetchVisitor
 } from "../controllers/securityController.js";
 import { editGuest } from "../controllers/guestController.js";
 
@@ -33,5 +34,8 @@ router.post("/time-in-worker", manageTimeInWorker);
 router.post("/time-out-worker", manageTimeOutWorker);
 router.post("/manage-offline-guest-record", manageOfflineGuestRecords);
 router.post("/add-visitors", addVisitor);
+router.post("/edit-visitors", updatedVisitor);
+router.post("/fetch-visitor", fetchVisitor);
+
 
 export default router;

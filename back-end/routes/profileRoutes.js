@@ -10,9 +10,9 @@ import { protect } from '../middlewares/authMiddleware.js'
 
 const router = express.Router()
 
-router.post('/fetch-requests', protect, fetchRequests)
-router.post('/fetch-request', protect, fetchRequest)
-router.post('/fetch-resident', protect, fetchResident)
-router.post('/fetch-residents', protect, fetchResidents)
+router.post('/fetch-requests', fetchRequests)
+router.post('/fetch-request', fetchRequest)
+router.post('/fetch-resident', fetchResident)
+router.post('/fetch-residents', fetchResidents)
 
 export default router

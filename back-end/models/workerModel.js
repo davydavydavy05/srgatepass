@@ -65,6 +65,11 @@ const workerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    default: "Active",
+    required: false,
+  },
 });
 
 export default mongoose.model("Worker", workerSchema);

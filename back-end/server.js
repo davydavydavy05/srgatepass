@@ -1,21 +1,20 @@
-import cookieParser from "cookie-parser";
-import cors from "cors";
-import dotenv from "dotenv";
-import express from "express";
-import http from "http";
-import { Server } from "socket.io";
+import cookieParser from 'cookie-parser'
+import cors from 'cors'
+import dotenv from 'dotenv'
+import express from 'express'
+import http from 'http'
+import { Server } from 'socket.io'
 
-import admin from "firebase-admin";
+import admin from 'firebase-admin'
 import { getMessaging } from "firebase-admin/messaging";
 
-import dbConnect from "./config/database.js";
-import {
+import dbConnect from './config/database.js'
+import { 
   announcementRoutes,
-  guestRoutes,
-  profileRoutes,
-  userRoutes,
-  securityRoutes,
-} from "./routes/index.js";
+  guestRoutes, 
+  profileRoutes, 
+  userRoutes, securityRoutes
+} from './routes/index.js'
 
 // const firebaseAdminCred = {
 //   "type": "service_account",
@@ -36,85 +35,85 @@ import {
 //   //projectId: 'sr-notifications',
 // });
 
-dotenv.config();
 
-const app = express();
-const port = process.env.PORT || 5000;
-const server = http.createServer(app);
+dotenv.config()
+
+const app = express()
+const port = process.env.PORT || 5000
+const server = http.createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: "https://srgatepass-43131.web.app", // Replace with your client's origin
-    methods: ["GET", "POST", "PUT"],
+    origin: 'https://srgatepass-back-end.onrender.com', // Replace with your client's origin
+    methods: ['GET', 'POST', 'PUT'],
     credentials: true,
   },
-});
+})
 
 // Middlewares
-app.use(
-  cors({
-    origin: true,
-    credentials: true,
-  })
-); // Allow CORS for all routes
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.locals.io = io;
+app.use(cors({ 
+  origin: true, 
+  credentials: true 
+})) // Allow CORS for all routes
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
+app.locals.io = io
 
 // Database Connection
-dbConnect();
+dbConnect()
 
 // Socket.io connection event
-io.on("connection", (socket) => {
-  console.log("A client connected.");
+io.on('connection', (socket) => {
+  console.log('A client connected.')
 
   // Join a room based on the user ID
-  socket.on("join", (userId) => {
-    socket.join(userId);
-  });
+  socket.on('join', (userId) => {
+    socket.join(userId)
+  })
 
   // Handle 'guest' event
-  socket.on("guest", (data) => {
-    const { guest } = data;
-    socket.broadcast.emit("guest", guest);
-  });
+  socket.on('guest', (data) => {
+    const { guest } = data
+    socket.broadcast.emit('guest', guest)
+  })
 
   // Handle 'announcement' event
-  socket.on("announcement", (announcement) => {
+  socket.on('announcement', (announcement) => {
     // Broadcast the announcement to all connected clients
-    socket.broadcast.emit("announcement", announcement);
-  });
+    socket.broadcast.emit('announcement', announcement)
+  })
 
   // Handle 'notification' event
-  socket.on("notification", (notification) => {
+  socket.on('notification', (notification) => {
     // Broadcast the notification to all connected clients
-    socket.broadcast.emit("notification", notification);
-  });
+    socket.broadcast.emit('notification', notification)
+  })
 
   // Handle disconnection event
-  socket.on("disconnect", () => {
-    console.log("A client disconnected.");
-  });
-});
+  socket.on('disconnect', () => {
+    console.log('A client disconnected.')
+  })
+})
 
 // User Routes
-app.use("/api/user", userRoutes);
+app.use('/api/user', userRoutes)
 
 // Profile Routes
-app.use("/api/profile", profileRoutes);
+app.use('/api/profile', profileRoutes)
 
 // Guest Routes
-app.use("/api/guest", guestRoutes);
+app.use('/api/guest', guestRoutes)
 
 // Announcement Routes
-app.use("/api/announcement", announcementRoutes);
+app.use('/api/announcement', announcementRoutes)
 
 // Security Routes
-app.use("/api/security", securityRoutes);
+app.use('/api/security', securityRoutes)
 
-app.get("/api/hello", (req, res) => {
-  res.status(200).json({ message: "Hello World" });
-});
+app.get('/api/hello', (req, res) => {
+  res.status(200).json({ message: 'Hello World' })
+  
+})
 
 // app.get("/notify", function (req, res) {
 //   const receivedToken = req.body.fcmToken;
@@ -136,7 +135,7 @@ app.get("/api/hello", (req, res) => {
 //         icon:"favicon.ico",
 //         default_sound:true
 //         }
-//     },
+//     },  
 //     // android: {
 //     //   notification: {
 //     //   imageUrl:"http://www.homerictours.com/images/icons/DryIcons/balloonica-icons-set/png/24x24/accept.png",
@@ -147,7 +146,7 @@ app.get("/api/hello", (req, res) => {
 //     // },
 //     token: " d_qa0-Hp6_0KelIAhrAIu6:APA91bHjlib6Xb_0DFcRi7lVGG9b1zvgN9g20hGNlcf0R9vcPdSMRSmSXP2bZNveVXShMX6zsXwjlOmA-uLLucXSdDsYYQs9GFnuTbPZpV_O6leoVwugVNNTp90I3HCwpR3hDxEe2X2Y",
 //   };
-
+  
 //   getMessaging()
 //     .send(message)
 //     .then((response) => {
@@ -162,8 +161,9 @@ app.get("/api/hello", (req, res) => {
 //       res.send(error);
 //       console.log("Error sending message:", error);
 //     });
-
+  
+  
 // });
 
 // Start the server
-server.listen(port, () => console.log(`Server started on port ${port}`));
+server.listen(port, () => console.log(`Server started on port ${port}`))
