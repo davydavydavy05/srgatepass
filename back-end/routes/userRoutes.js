@@ -27,21 +27,21 @@ router.post('/change-password', changePassword)
 router.post('/forgot-password', forgotPassword)
 router.post('/generate-otp', requestOtp)
 router.post('/verification', verifyOtp)
-router.post('/validate-user',  validateUser)
+router.post('/validate-user', protect, validateUser)
 router.post('/check-user', checkUser)
 router.post('/check-resident-username', checkResidentUsername)
-router.post('/register-user',  registerUser)
-router.post('/update-user',  updateUser)
-router.post('/approve-user',  approveUser)
-router.post('/fetch-application',  fetchApplication)
-router.post('/mark-notification-as-read',  markNotificationAsRead)
-router.post('/add-user-admin',  addWorkerAdmin)
-router.post('/fetch-workers', fetchWorkers)
-router.post('/fetch-worker', fetchWorker)
-router.post('/updateToken', updateUserFmcToken)
-router.post('/deactivate-resident', deactivateResident);
+router.post('/register-user', protect, registerUser)
+router.post('/update-user', protect, updateUser)
+router.post('/approve-user', protect, approveUser)
+router.post('/fetch-application', protect, fetchApplication)
+router.post('/mark-notification-as-read', protect, markNotificationAsRead)
+router.post('/add-user-admin', protect, addWorkerAdmin)
+router.post('/fetch-workers', protect,fetchWorkers)
+router.post('/fetch-worker', protect,fetchWorker)
+router.post('/updateToken', protect,updateUserFmcToken)
+router.post('/deactivate-resident',protect, deactivateResident);
 router.post('/edit-profile-resident', editProfileResident)
-router.post('/deactivate-worker', deactivateWorker);
+router.post('/deactivate-worker',protect, deactivateWorker);
 
 export default router
 //NCFIN
