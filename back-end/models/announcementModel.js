@@ -29,7 +29,12 @@ const announcementSchema = new mongoose.Schema({
   isPin: {
     type: Boolean,
     required: true
-  }
+  },
+  isHide: {
+    type: Boolean,
+    default: false,
+    required: false,
+  },
 })
 
 export default mongoose.model('Announcement', announcementSchema)

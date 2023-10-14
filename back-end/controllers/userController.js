@@ -1075,30 +1075,35 @@ const editProfileResident = asyncHandler(async (req, res) => {
       return arr;
     }, []);
 
-    // const guestNamesArr = req.body['name[]'];
     console.log("body", req.body);
-    // Check if resident profile and username already exists
-    // const user = await Guest.findOne({ emailAddress })
 
-    const profile = await Resident.updateOne(
-      { _id: _id },
-      {
-        $set: {
-          firstName,
-          middleName,
-          lastName,
-          birthdate,
-          gender,
-          phoneNumber,
-          address,
-          username,
-          type,
-          landCertificate: landCertificateArr,
-          validId: validIdArr,
-          picture: pictureArr,
-        },
-      }
-    );
+    const updateFields = {
+      firstName,
+      middleName,
+      lastName,
+      birthdate,
+      gender,
+      phoneNumber,
+      address,
+      username,
+      type,
+    };
+
+    // Include the arrays in the update only if they are not empty
+    if (landCertificateArr.length > 0) {
+      updateFields.landCertificate = landCertificateArr;
+    }
+
+    if (validIdArr.length > 0) {
+      updateFields.validId = validIdArr;
+    }
+
+    if (pictureArr.length > 0) {
+      updateFields.picture = pictureArr;
+    }
+
+    const profile = await Resident.updateOne({ _id: _id }, { $set: updateFields });
+
     if (profile) {
       res.status(200).json(profile);
       console.log("edited", profile);
@@ -1109,31 +1114,109 @@ const editProfileResident = asyncHandler(async (req, res) => {
   }
 });
 
-// const deactivateResident = asyncHandler(async (req, res) => {
+// const editProfileResident = asyncHandler(async (req, res) => {
 //   try {
-//     const { _id } = req.body;
+//     const {
+//       firstName,
+//       middleName,
+//       lastName,
+//       birthdate,
+//       gender,
+//       phoneNumber,
+//       address,
+//       username,
+//       type,
+//       _id,
+//     } = req.body;
 
-//     // Assuming you have a User model
-//     const updatedGuest = await Resident.findOneAndUpdate(
-//       { _id: _id }, // Use your criteria to identify the user based on userId
-//       { $set: { status: "Deactivated" } }, // Update or add the isCancel field to true
-//       { new: true }
+//     // Copy landCertificate values into an array
+//     const landCertificateArr = Object.keys(req.body).reduce((arr, key) => {
+//       const match = key.match(/landCertificate\[(\d+)\]\[(\w+)\]/);
+
+//       if (match) {
+//         const index = Number(match[1]);
+//         const property = match[2];
+
+//         if (!arr[index]) {
+//           arr[index] = {};
+//         }
+
+//         arr[index][property] = req.body[key];
+//       }
+
+//       return arr;
+//     }, []);
+
+//     // Copy validId values into an array
+//     const validIdArr = Object.keys(req.body).reduce((arr, key) => {
+//       const match = key.match(/validId\[(\d+)\]\[(\w+)\]/);
+
+//       if (match) {
+//         const index = Number(match[1]);
+//         const property = match[2];
+
+//         if (!arr[index]) {
+//           arr[index] = {};
+//         }
+
+//         arr[index][property] = req.body[key];
+//       }
+
+//       return arr;
+//     }, []);
+
+//     // Copy pictureArr values into an array
+//     const pictureArr = Object.keys(req.body).reduce((arr, key) => {
+//       const match = key.match(/picture\[(\d+)\]\[(\w+)\]/);
+
+//       if (match) {
+//         const index = Number(match[1]);
+//         const property = match[2];
+
+//         if (!arr[index]) {
+//           arr[index] = {};
+//         }
+
+//         arr[index][property] = req.body[key];
+//       }
+
+//       return arr;
+//     }, []);
+
+
+//     console.log("body", req.body);
+
+
+//     const profile = await Resident.updateOne(
+//       { _id: _id },
+//       {
+//         $set: {
+//           firstName,
+//           middleName,
+//           lastName,
+//           birthdate,
+//           gender,
+//           phoneNumber,
+//           address,
+//           username,
+//           type,
+//           landCertificate: landCertificateArr,
+//           validId: validIdArr,
+//           picture: pictureArr,
+//         },
+//       }
 //     );
-
-//     if (updatedGuest) {
-//       console.log("User resident status:", updatedGuest);
-//       res
-//         .status(200)
-//         .json({ message: "resident status updated successfully." });
-//     } else {
-//       console.log("resident not found.");
-//       res.status(404).json({ message: "resident not found." });
+//     if (profile) {
+//       res.status(200).json(profile);
+//       console.log("edited", profile);
 //     }
 //   } catch (error) {
-//     console.error("Error updating user status:", error);
+//     console.error("Error updating user token:", error);
 //     res.status(500).json({ message: "Internal server error." });
 //   }
 // });
+
+
 const deactivateResident = asyncHandler(async (req, res) => {
   try {
     const { _id } = req.body;
