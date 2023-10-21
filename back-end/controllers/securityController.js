@@ -749,7 +749,7 @@ const notification = await Notification.create({
 });
 
 await User.updateOne(
-  { _id: hostUserProfile.id },
+  { _id: hostUserProfile._id },
   {
     $push: {
       notifications: {
