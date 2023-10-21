@@ -797,7 +797,7 @@ if (hostUserProfile.fmcToken) {
     },
     webpush: {
       fcmOptions: {
-        link: "https://srgatepass-43131.web.app",
+        link: "https://sr-gatepass.web.app",
       },
       notification: {
         icon: "favicon.ico",
