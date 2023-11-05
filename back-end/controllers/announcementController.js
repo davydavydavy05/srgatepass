@@ -254,16 +254,21 @@ const editAnnouncement = asyncHandler(async (req, res) => {
   const io = req.app.locals.io; // Get the io object from app.locals
 
   try {
-    // Find the edited announcement
     const editedAnnouncement = await Announcement.findById(announcementId);
 
     if (!editedAnnouncement) {
       return res.status(404).json({ errorMessage: 'Announcement not found' });
     }
 
-    // If the edited announcement isPin is true, set all other announcements' isPin to false
-    if (isPin) {
-      await Announcement.updateMany({ _id: { $ne: announcementId } }, { $set: { isPin: false } });
+    // Only update isPin if it's different from the current value
+    if (isPin !== editedAnnouncement.isPin) {
+      // If the edited announcement isPin is true, set all other announcements' isPin to false
+      if (isPin) {
+        await Announcement.updateMany(
+          { _id: { $ne: announcementId } },
+          { $set: { isPin: false } }
+        );
+      }
     }
 
     const updateFields = {
@@ -284,7 +289,7 @@ const editAnnouncement = asyncHandler(async (req, res) => {
     );
 
     if (announcement) {
-      io.emit("announcement", announcement);
+      io.emit('announcement', announcement);
       return res.status(200).json(announcement);
     }
   } catch (error) {
@@ -292,6 +297,7 @@ const editAnnouncement = asyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+
 
 // const editAnnouncement = asyncHandler(async (req, res) => {
 //   const {
