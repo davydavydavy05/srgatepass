@@ -258,7 +258,7 @@ const editAnnouncement = asyncHandler(async (req, res) => {
 
   try {
     if (isPin) {
-      await Announcement.updateMany( { $set: { isPin: false } });
+      await Announcement.updateMany({ isPin: true }, { $set: { isPin: false } });
     }
 
     const updateFields = {
