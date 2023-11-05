@@ -224,7 +224,6 @@ const postAnnouncement = asyncHandler(async (req, res) => {
     .json({ errorMessage: `Error. There's a problem encountered.` });
   throw new Error("Error.");
 });
-
 const editAnnouncement = asyncHandler(async (req, res) => {
   const {
     announcementId,
@@ -252,13 +251,19 @@ const editAnnouncement = asyncHandler(async (req, res) => {
     return arr;
   }, []);
 
-  console.log(req.body, imageArray);
-
   const io = req.app.locals.io; // Get the io object from app.locals
 
   try {
+    // Find the edited announcement
+    const editedAnnouncement = await Announcement.findById(announcementId);
+
+    if (!editedAnnouncement) {
+      return res.status(404).json({ errorMessage: 'Announcement not found' });
+    }
+
+    // If the edited announcement isPin is true, set all other announcements' isPin to false
     if (isPin) {
-      await Announcement.updateMany({ isPin: true }, { $set: { isPin: false } });
+      await Announcement.updateMany({ _id: { $ne: announcementId } }, { $set: { isPin: false } });
     }
 
     const updateFields = {
@@ -287,6 +292,69 @@ const editAnnouncement = asyncHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+
+// const editAnnouncement = asyncHandler(async (req, res) => {
+//   const {
+//     announcementId,
+//     heading,
+//     body,
+//     isPin,
+//     postedBy,
+//   } = req.body;
+
+//   // Copy pictureArr values into an array
+//   const imageArray = Object.keys(req.body).reduce((arr, key) => {
+//     const match = key.match(/images\[(\d+)\]\[(\w+)\]/);
+
+//     if (match) {
+//       const index = Number(match[1]);
+//       const property = match[2];
+
+//       if (!arr[index]) {
+//         arr[index] = {};
+//       }
+
+//       arr[index][property] = req.body[key];
+//     }
+
+//     return arr;
+//   }, []);
+
+//   console.log(req.body, imageArray);
+
+//   const io = req.app.locals.io; // Get the io object from app.locals
+
+//   try {
+//     if (isPin) {
+//       await Announcement.updateMany({ isPin: true }, { $set: { isPin: false } });
+//     }
+
+//     const updateFields = {
+//       heading,
+//       body,
+//       isPin,
+//     };
+
+//     // Only update images if imageArray is not empty
+//     if (imageArray.length > 0) {
+//       updateFields.images = imageArray;
+//     }
+
+//     const announcement = await Announcement.findByIdAndUpdate(
+//       announcementId,
+//       updateFields,
+//       { new: true }
+//     );
+
+//     if (announcement) {
+//       io.emit("announcement", announcement);
+//       return res.status(200).json(announcement);
+//     }
+//   } catch (error) {
+//     res.status(400).json({ errorMessage: `Error. There's a problem encountered.` });
+//     throw new Error(error);
+//   }
+// });
 
 const deleteAnnouncement = asyncHandler(async (req, res) => {
   const {
