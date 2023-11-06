@@ -328,7 +328,7 @@ const bookGuest = asyncHandler(async (req, res) => {
       });
   }
 
-  // sendSMS();
+  sendSMS();
 
   // const guestCountByName = await Guest.aggregate([
   //   {
